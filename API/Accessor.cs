@@ -2,7 +2,7 @@
 
 namespace Guardian
 {
-    public class Accessor<T>
+    public interface IAccessor<T>
     {
     }
 }
