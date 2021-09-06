@@ -5,4 +5,8 @@
     <RootNamespace>Guardian.Mutatio</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\API\API.csproj" />
+  </ItemGroup>
+
 </Project>

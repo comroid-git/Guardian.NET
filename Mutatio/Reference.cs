@@ -2,7 +2,7 @@
 
 namespace Guardian.Mutatio
 {
-    public class Class1
+    public class Reference<T> : Accessor<T>
     {
     }
 }
