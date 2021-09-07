@@ -8,6 +8,7 @@ namespace Guardian.Numerics
 {
     public class Quaternion<TNum> : NTuple<TNum> where TNum : unmanaged
     {
+        #region X Y Z W Accessors
         public const int IndexX = 0;
         public const int IndexY = 1;
         public const int IndexZ = 2;
@@ -41,6 +42,7 @@ namespace Guardian.Numerics
             get => StackW.Get();
             set => StackW.Set(value);
         }
+        #endregion
 
         public Quaternion(TNum x, TNum y, TNum z, TNum w) : base(4)
         {
@@ -51,13 +53,9 @@ namespace Guardian.Numerics
         }
 
         public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) {}
-
-        public static Quaternion<TNum> operator +(Quaternion<TNum> left, Quaternion<TNum> right)
-        {
-            return left;
-        }
     }
 
+    #region Subtypes
     public class QuaternionF : Quaternion<float>
     {
         public QuaternionF(float x, float y, float z, float w) : base(x, y, z, w)
@@ -71,4 +69,5 @@ namespace Guardian.Numerics
         {
         }
     }
+    #endregion
 }
