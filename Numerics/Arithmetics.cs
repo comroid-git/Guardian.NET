@@ -41,6 +41,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => (byte)(left * right),
                 ArithmeticOperator.Division => (byte)(left / right),
                 ArithmeticOperator.Negation => (byte)-left,
+                ArithmeticOperator.SquareRoot => (byte) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -53,6 +54,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => (sbyte)(left * right),
                 ArithmeticOperator.Division => (sbyte)(left / right),
                 ArithmeticOperator.Negation => (sbyte)-left,
+                ArithmeticOperator.SquareRoot => (sbyte) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -65,6 +67,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => (short)(left * right),
                 ArithmeticOperator.Division => (short)(left / right),
                 ArithmeticOperator.Negation => (short)-left,
+                ArithmeticOperator.SquareRoot => (short) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -77,6 +80,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => (ushort)(left * right),
                 ArithmeticOperator.Division => (ushort)(left / right),
                 ArithmeticOperator.Negation => (ushort)-left,
+                ArithmeticOperator.SquareRoot => (ushort) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -89,6 +93,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => left * right,
                 ArithmeticOperator.Division => left / right,
                 ArithmeticOperator.Negation => -left,
+                ArithmeticOperator.SquareRoot => (int) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -101,6 +106,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => left * right,
                 ArithmeticOperator.Division => left / right,
                 ArithmeticOperator.Negation => (uint)-left,
+                ArithmeticOperator.SquareRoot => (uint) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -113,6 +119,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => left * right,
                 ArithmeticOperator.Division => left / right,
                 ArithmeticOperator.Negation => -left,
+                ArithmeticOperator.SquareRoot => (long) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -125,6 +132,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => left * right,
                 ArithmeticOperator.Division => left / right,
                 ArithmeticOperator.Negation => throw new NotSupportedException("Cannot negate type ulong"),
+                ArithmeticOperator.SquareRoot => (ulong) Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -137,6 +145,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => left * right,
                 ArithmeticOperator.Division => left / right,
                 ArithmeticOperator.Negation => -left,
+                ArithmeticOperator.SquareRoot => MathF.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -149,6 +158,7 @@ namespace Guardian
                 ArithmeticOperator.Multiplication => left * right,
                 ArithmeticOperator.Division => left / right,
                 ArithmeticOperator.Negation => -left,
+                ArithmeticOperator.SquareRoot => Math.Sqrt(left),
                 _ => throw new ArgumentException(nameof(op))
             };
         }
@@ -161,6 +171,7 @@ namespace Guardian
         Multiplication,
         Division,
 
-        Negation
+        Negation,
+        SquareRoot
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Runtime.CompilerServices;
 using Guardian.Mutatio;
 
@@ -41,8 +43,25 @@ namespace Guardian.Numerics
         public Vector(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) { }
 
         #region Advanced Arithmetic Operations
-        public TNum Magnitude() { }
-        public NTuple<TNum> Normalize() { }
+
+        public TNum Magnitude()
+        {
+            var squares = new List<TNum>();
+            for (int i = 0; i < Size; i++)
+            {
+                var v = Get(i);
+                squares.Add(ArithmeticOperator.Multiplication.Apply(v, v));
+            }
+            var sqsum = squares[0];
+            for (int i = 1; i < Size; i++)
+                sqsum = ArithmeticOperator.Addition.Apply(sqsum, squares[i]);
+            return ArithmeticOperator.SquareRoot.Apply(sqsum, sqsum);
+        }
+
+        public NTuple<TNum> Normalize()
+        {
+            return this / Magnitude();
+        }
         #endregion
     }
 

@@ -12,6 +12,12 @@ namespace Guardian.Numerics
 {
     public class NTuple<TNum> : Reference<TNum> where TNum : unmanaged
     {
+        public NTuple(int n, TNum fillValue) : this(false, new RefStack<TNum>[n])
+        {
+            for (int i = 0; i < n; i++)
+                this[i] = fillValue;
+        }
+
         public NTuple(int n) : base(true, n)
         {
         }
@@ -51,9 +57,19 @@ namespace Guardian.Numerics
             return new ArithmeticOutputTuple<TNum>(Subtraction, left, right);
         }
 
+        public static NTuple<TNum> operator *(NTuple<TNum> left, TNum right)
+        {
+            return left * new NTuple<TNum>(left.Size, right);
+        }
+
         public static NTuple<TNum> operator *(NTuple<TNum> left, NTuple<TNum> right)
         {
             return new ArithmeticOutputTuple<TNum>(Multiplication, left, right);
+        }
+
+        public static NTuple<TNum> operator /(NTuple<TNum> left, TNum right)
+        {
+            return left / new NTuple<TNum>(left.Size, right);
         }
 
         public static NTuple<TNum> operator /(NTuple<TNum> left, NTuple<TNum> right)
