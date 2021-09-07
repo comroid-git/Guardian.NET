@@ -75,11 +75,6 @@ namespace Guardian.Numerics
         }
         #endregion
 
-        #region Advanced Arithmetic Operations
-        public TNum Magnitude() { }
-        public NTuple<TNum> Normalize() { }
-        #endregion
-
         #region Conversion Methods
         public Vector<TNum> Vector() => this is Vector<TNum> ? (Vector<TNum>) this : new Vector<TNum>(this);
         public Vector2<TNum> Vector2() => this is Vector2<TNum> ? (Vector2<TNum>)this : new Vector2<TNum>(this);

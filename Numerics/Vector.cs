@@ -38,7 +38,12 @@ namespace Guardian.Numerics
         {
         }
 
-        public Vector(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) {}
+        public Vector(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) { }
+
+        #region Advanced Arithmetic Operations
+        public TNum Magnitude() { }
+        public NTuple<TNum> Normalize() { }
+        #endregion
     }
 
     #region Vector2 Types
