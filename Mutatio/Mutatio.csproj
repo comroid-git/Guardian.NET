@@ -1,9 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Guardian.Mutatio</RootNamespace>
     <Nullable>annotations</Nullable>
+    <Company>comroid</Company>
+    <Authors>Kaleidox</Authors>
+    <Product>Guardian.NET</Product>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

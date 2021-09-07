@@ -4,6 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Guardian</RootNamespace>
     <Nullable>enable</Nullable>
+    <Version>0.1.0</Version>
+    <Authors>Kaleidox</Authors>
+    <Company>comroid</Company>
+    <Product>Guardian.NET</Product>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
