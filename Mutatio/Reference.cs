@@ -76,7 +76,7 @@ namespace Guardian.Mutatio
         private T _value;
         private bool _mutable;
 
-        public RefStack() : this(default(T)!)
+        public RefStack(bool mutable = true) : this(default(T)!, mutable)
         {
         }
 
@@ -97,7 +97,7 @@ namespace Guardian.Mutatio
             return _value;
         }
 
-        public bool Set(T value)
+        public bool Set(T value, bool expandIfAbsent = false)
         {
             lock (this)
                 return (Setter ?? (_Set))(value);
