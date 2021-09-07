@@ -13,6 +13,6 @@ namespace Guardian
 
         public T Get();
 
-        public bool Set(T value);
+        public bool Set(T value, bool expandIfAbsent = false);
     }
 }
