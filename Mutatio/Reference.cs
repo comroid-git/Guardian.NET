@@ -14,6 +14,9 @@ namespace Guardian.Mutatio
 
         public Reference(bool mutable = true, params RefStack<T>[] stack)
         {
+            for (var i = 0; i < stack.Length; i++)
+                if (stack[i] == null)
+                    stack[i] = new RefStack<T>(mutable);
             _stack = stack;
             _mutable = mutable;
         }
