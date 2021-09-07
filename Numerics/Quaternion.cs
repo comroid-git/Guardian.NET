@@ -48,6 +48,11 @@ namespace Guardian.Numerics
             Z = z;
             W = w;
         }
+
+        public static Quaternion<TNum> operator +(Quaternion<TNum> left, Quaternion<TNum> right)
+        {
+            return left;
+        }
     }
 
     public class QuaternionF : Quaternion<float>
