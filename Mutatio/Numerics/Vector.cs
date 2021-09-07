@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Guardian.Mutatio;
 
-namespace Guardian.Numerics
+namespace Guardian.Mutatio.Numerics
 {
     public class Vector<TNum> : NTuple<TNum> where TNum : unmanaged
     {

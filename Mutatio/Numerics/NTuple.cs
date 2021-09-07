@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Guardian.Mutatio;
-using static Guardian.ArithmeticOperator;
+using static Guardian.Mutatio.Numerics.ArithmeticOperator;
 
-namespace Guardian.Numerics
+namespace Guardian.Mutatio.Numerics
 {
     public class NTuple<TNum> : Reference<TNum> where TNum : unmanaged
     {

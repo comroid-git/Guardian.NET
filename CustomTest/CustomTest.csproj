@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Numerics\Numerics.csproj" />
+    <ProjectReference Include="..\Mutatio\Mutatio.csproj" />
   </ItemGroup>
 
 </Project>

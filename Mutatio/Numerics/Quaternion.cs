@@ -1,7 +1,6 @@
 ﻿using System;
-using Guardian.Mutatio;
 
-namespace Guardian.Numerics
+namespace Guardian.Mutatio.Numerics
 {
     public class Quaternion<TNum> : NTuple<TNum> where TNum : unmanaged
     {

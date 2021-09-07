@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Guardian
+namespace Guardian.Mutatio.Numerics
 {
     public static class Extensions
     {
