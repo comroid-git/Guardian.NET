@@ -28,6 +28,26 @@ namespace Guardian.Numerics
             return $"{GetType().Name}<{nums}>";
         }
 
+        public override int GetHashCode()
+        {
+            return ToString().GetHashCode(); // todo Fix
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is NTuple<TNum> tuple && Equals(tuple);
+        }
+
+        public bool Equals(NTuple<TNum> tuple)
+        {
+            if (tuple.Size != Size)
+                return false;
+            for (int i = 0; i < Size; i++)
+                if (!tuple[i].Equals(this[i]))
+                    return false;
+            return true;
+        }
+
         public NTuple<TOut> CastTuple<TOut>() where TOut : unmanaged // todo: TEST!
         {
             var stacks = new List<RefStack<TOut>>();
