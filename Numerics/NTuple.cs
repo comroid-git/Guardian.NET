@@ -127,6 +127,16 @@ namespace Guardian.Numerics
             return new ArithmeticOutputTuple<TNum>(Negation, tuple, tuple);
         }
 
+        public static bool operator ==(NTuple<TNum> left, NTuple<TNum> right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(NTuple<TNum> left, NTuple<TNum> right)
+        {
+            return !left.Equals(right);
+        }
+
         public static implicit operator TNum[](NTuple<TNum> tuple)
         {
             var arr = new TNum[tuple.Size];
