@@ -72,8 +72,10 @@ namespace Guardian.Numerics
             private static RefStack<TOut>[] CreateStacks(ArithmeticOperator op, NTuple<TOut> left, NTuple<TOut> right)
             {
                 var size = left.Size;
+                /*
                 if (size != right.Size)
                     throw new ArgumentException("NTuple cannot compute with different sizes!");
+                */
                 var stacks = new List<RefStack<TOut>>();
                 for (int i = 0; i < size; i++)
                 {
