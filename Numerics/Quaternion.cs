@@ -5,18 +5,6 @@ namespace Guardian.Numerics
 {
     public class Quaternion<TNum> : NTuple<TNum> where TNum : unmanaged
     {
-        public static Quaternion<TNum> EulerAngles(Vector3<TNum> euler)
-        {
-            throw new NotImplementedException();
-        }
-
-        public static Quaternion<TNum> AxisRotation(Vector<TNum> axis, TNum angle)
-        {
-            var quaternion = axis.Normalize().Quaternion();
-            quaternion.W = angle;
-            return quaternion;
-        }
-
         public Quaternion(TNum x, TNum y, TNum z, TNum w) : base(4)
         {
             X = x;
@@ -29,6 +17,18 @@ namespace Guardian.Numerics
         {
             if (Size != 4)
                 throw new ArgumentException("Illegal Quaternion Size: " + Size);
+        }
+
+        public static Quaternion<TNum> EulerAngles(Vector3<TNum> euler)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static Quaternion<TNum> AxisRotation(Vector<TNum> axis, TNum angle)
+        {
+            var quaternion = axis.Normalize().Quaternion();
+            quaternion.W = angle;
+            return quaternion;
         }
 
         #region X Y Z W Accessors
@@ -70,6 +70,7 @@ namespace Guardian.Numerics
         #endregion
 
         #region Advanced Arithmetic Accessors
+
         /*
         public Vector3<TNum> Forward() => new Vector3<TNum>(
             2 * (this.X * this.Z + this.W * this.Y),
@@ -131,6 +132,7 @@ namespace Guardian.Numerics
             return pitchYawRoll;
         }
         */
+
         #endregion
     }
 
@@ -138,6 +140,9 @@ namespace Guardian.Numerics
 
     public class QuaternionF : Quaternion<float>
     {
+        public static readonly QuaternionF Zero = new QuaternionF(0, 0, 0, 0);
+        public static readonly QuaternionF Identity = new QuaternionF(0, 0, 0, 1);
+
         public QuaternionF(float x, float y, float z, float w) : base(x, y, z, w)
         {
         }
@@ -145,6 +150,9 @@ namespace Guardian.Numerics
 
     public class QuaternionD : Quaternion<double>
     {
+        public static readonly QuaternionD Zero = new QuaternionD(0, 0, 0, 0);
+        public static readonly QuaternionD Identity = new QuaternionD(0, 0, 0, 1);
+
         public QuaternionD(double x, double y, double z, double w) : base(x, y, z, w)
         {
         }

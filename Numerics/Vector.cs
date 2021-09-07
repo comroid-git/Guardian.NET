@@ -88,6 +88,11 @@ namespace Guardian.Numerics
 
     public class Vector2i : Vector2<int>
     {
+        public static readonly Vector2i Zero = new Vector2i(0, 0);
+        public static readonly Vector2i One = new Vector2i(1, 1);
+        public static readonly Vector2i Up = new Vector2i(0, 1);
+        public static readonly Vector2i Right = new Vector2i(1, 0);
+
         public Vector2i(int x, int y) : base(x, y)
         {
         }
@@ -99,6 +104,11 @@ namespace Guardian.Numerics
 
     public class Vector2f : Vector2<float>
     {
+        public static readonly Vector2f Zero = new Vector2f(0, 0);
+        public static readonly Vector2f One = new Vector2f(1, 1);
+        public static readonly Vector2f Up = new Vector2f(0, 1);
+        public static readonly Vector2f Right = new Vector2f(1, 0);
+
         public Vector2f(float x, float y) : base(x, y)
         {
         }
@@ -110,6 +120,11 @@ namespace Guardian.Numerics
 
     public class Vector2d : Vector2<double>
     {
+        public static readonly Vector2d Zero = new Vector2d(0, 0);
+        public static readonly Vector2d One = new Vector2d(1, 1);
+        public static readonly Vector2d Up = new Vector2d(0, 1);
+        public static readonly Vector2d Right = new Vector2d(1, 0);
+
         public Vector2d(double x, double y) : base(x, y)
         {
         }
@@ -141,6 +156,12 @@ namespace Guardian.Numerics
 
     public class Vector3i : Vector3<int>
     {
+        public static readonly Vector3i Zero = new Vector3i(0, 0, 0);
+        public static readonly Vector3i One = new Vector3i(1, 1, 1);
+        public static readonly Vector3i Up = new Vector3i(0, 1, 0);
+        public static readonly Vector3i Right = new Vector3i(1, 0, 0);
+        public static readonly Vector3i Forward = new Vector3i(0, 0, 1);
+
         public Vector3i(int x, int y, int z) : base(x, y, z)
         {
         }
@@ -152,6 +173,12 @@ namespace Guardian.Numerics
 
     public class Vector3f : Vector3<float>
     {
+        public static readonly Vector3f Zero = new Vector3f(0, 0, 0);
+        public static readonly Vector3f One = new Vector3f(1, 1, 1);
+        public static readonly Vector3f Up = new Vector3f(0, 1, 0);
+        public static readonly Vector3f Right = new Vector3f(1, 0, 0);
+        public static readonly Vector3f Forward = new Vector3f(0, 0, 1);
+
         public Vector3f(float x, float y, float z) : base(x, y, z)
         {
         }
@@ -163,6 +190,12 @@ namespace Guardian.Numerics
 
     public class Vector3d : Vector3<double>
     {
+        public static readonly Vector3d Zero = new Vector3d(0, 0, 0);
+        public static readonly Vector3d One = new Vector3d(1, 1, 1);
+        public static readonly Vector3d Up = new Vector3d(0, 1, 0);
+        public static readonly Vector3d Right = new Vector3d(1, 0, 0);
+        public static readonly Vector3d Forward = new Vector3d(0, 0, 1);
+
         public Vector3d(double x, double y, double z) : base(x, y, z)
         {
         }
@@ -205,6 +238,13 @@ namespace Guardian.Numerics
 
     public class Vector4i : Vector4<int>
     {
+        public static readonly Vector4i Zero = new Vector4i(0, 0, 0, 0);
+        public static readonly Vector4i One = new Vector4i(1, 1, 1, 1);
+        public static readonly Vector4i Up = new Vector4i(0, 0, 1, 0);
+        public static readonly Vector4i Right = new Vector4i(0, 1, 0, 0);
+        public static readonly Vector4i Forward = new Vector4i(0, 0, 0, 1);
+        public static readonly Vector4i Next = new Vector4i(1, 0, 0, 0);
+
         public Vector4i(int w, int x, int y, int z) : base(w, x, y, z)
         {
         }
@@ -216,6 +256,13 @@ namespace Guardian.Numerics
 
     public class Vector4f : Vector4<float>
     {
+        public static readonly Vector4f Zero = new Vector4f(0, 0, 0, 0);
+        public static readonly Vector4f One = new Vector4f(1, 1, 1, 1);
+        public static readonly Vector4f Up = new Vector4f(0, 0, 1, 0);
+        public static readonly Vector4f Right = new Vector4f(0, 1, 0, 0);
+        public static readonly Vector4f Forward = new Vector4f(0, 0, 0, 1);
+        public static readonly Vector4f Next = new Vector4f(1, 0, 0, 0);
+
         public Vector4f(float w, float x, float y, float z) : base(w, x, y, z)
         {
         }
@@ -227,6 +274,13 @@ namespace Guardian.Numerics
 
     public class Vector4d : Vector4<double>
     {
+        public static readonly Vector4d Zero = new Vector4d(0, 0, 0, 0);
+        public static readonly Vector4d One = new Vector4d(1, 1, 1, 1);
+        public static readonly Vector4d Up = new Vector4d(0, 0, 1, 0);
+        public static readonly Vector4d Right = new Vector4d(0, 1, 0, 0);
+        public static readonly Vector4d Forward = new Vector4d(0, 0, 0, 1);
+        public static readonly Vector4d Next = new Vector4d(1, 0, 0, 0);
+
         public Vector4d(double w, double x, double y, double z) : base(w, x, y, z)
         {
         }
