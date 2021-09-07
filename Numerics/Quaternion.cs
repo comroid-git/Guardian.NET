@@ -52,7 +52,11 @@ namespace Guardian.Numerics
             W = w;
         }
 
-        public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) {}
+        public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack())
+        {
+            if (Size != 4)
+                throw new ArgumentException("Illegal Quaternion Size: " + Size);
+        }
 
         #region Advanced Arithmetic Accessors
         /*

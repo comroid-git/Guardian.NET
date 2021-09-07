@@ -70,6 +70,8 @@ namespace Guardian.Numerics
     {
         public Vector2(TNum x, TNum y) : base(2)
         {
+            if (Size != 2)
+                throw new ArgumentException("Illegal Vector2 Size: " + Size);
             X = x;
             Y = y;
         }
@@ -118,6 +120,8 @@ namespace Guardian.Numerics
     {
         public Vector3(TNum x, TNum y, TNum z) : base(3)
         {
+            if (Size != 3)
+                throw new ArgumentException("Illegal Vector3 Size: " + Size);
             X = x;
             Y = y;
             Z = z;
@@ -177,6 +181,8 @@ namespace Guardian.Numerics
 
         public Vector4(TNum w, TNum x, TNum y, TNum z) : base(4)
         {
+            if (Size != 4)
+                throw new ArgumentException("Illegal Vector4 Size: " + Size);
             W = w;
             X = x;
             Y = y;
