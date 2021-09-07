@@ -59,7 +59,7 @@ namespace Guardian.Mutatio
         protected RefStack<T> Stack(int index, bool expandIfAbsent = false)
         {
             if (!expandIfAbsent && index >= _stack.Length)
-                throw new IndexOutOfRangeException($"Index out of Range: {index}; Maximum: {_stack.Length}");
+                return RefStack<T>.Empty<T>();
             else if (expandIfAbsent)
             {
                 var swap = new RefStack<T>[index + 1];
@@ -116,6 +116,11 @@ namespace Guardian.Mutatio
         {
             get => _mutable && (Getter != null ? Setter != null : true);
             set => _mutable = value;
+        }
+
+        public static RefStack<T> Empty<T>()
+        {
+            return new RefStack<T>(false);
         }
     }
 }
