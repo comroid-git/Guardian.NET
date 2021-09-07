@@ -58,9 +58,9 @@ namespace Guardian.Numerics
             return ArithmeticOperator.SquareRoot.Apply(sqsum, sqsum);
         }
 
-        public NTuple<TNum> Normalize()
+        public Vector<TNum> Normalize()
         {
-            return this / Magnitude();
+            return (this / Magnitude()).Vector();
         }
         #endregion
     }
