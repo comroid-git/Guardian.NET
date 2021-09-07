@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Guardian.Mutatio
 {
@@ -18,6 +19,7 @@ namespace Guardian.Mutatio
             _mutable = mutable;
         }
 
+        [MaybeNull]
         public T this[int index]
         {
             get => Get(index);
@@ -56,6 +58,7 @@ namespace Guardian.Mutatio
         public static readonly RefStack<object> Dummy = new RefStack<object>();
         public Func<T>? Getter;
         public Func<T, bool>? Setter;
+        [MaybeNull]
         private T _value;
         private bool _mutable;
 
@@ -63,7 +66,7 @@ namespace Guardian.Mutatio
         {
         }
 
-        public RefStack(T initialValue, bool mutable = true)
+        public RefStack([MaybeNull] T initialValue, bool mutable = true)
         {
             _value = initialValue;
             _mutable = mutable;
@@ -74,7 +77,7 @@ namespace Guardian.Mutatio
             lock (this)
                 return (Getter ?? (_Get))();
         }
-
+        
         private T _Get()
         {
             return _value;
