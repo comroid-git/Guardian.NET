@@ -18,6 +18,8 @@ namespace Guardian.Mutatio
             _mutable = mutable;
         }
 
+        public int Size => _stack.Length;
+
         [MaybeNull]
         public T this[int index]
         {
@@ -41,14 +43,14 @@ namespace Guardian.Mutatio
             return Stack(index).Get();
         }
 
-        public bool Set(T value)
+        public bool Set(T value, bool expandIfAbsent = false)
         {
-            return Set(0, value);
+            return Set(0, value, expandIfAbsent);
         }
 
-        public bool Set(int index, T value)
+        public bool Set(int index, T value, bool expandIfAbsent = false)
         {
-            return Stack(index).Set(value);
+            return Stack(index, expandIfAbsent).Set(value);
         }
 
         protected RefStack<T> Stack(int index, bool expandIfAbsent = false)
