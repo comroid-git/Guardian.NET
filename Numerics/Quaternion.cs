@@ -53,6 +53,28 @@ namespace Guardian.Numerics
         }
 
         public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) {}
+
+        #region Advanced Arithmetic Accessors
+        /*
+        public Vector3 Forward() => new Vector3(
+            2 * (this.X * this.Z + this.W * this.Y),
+            2 * (this.Y * this.Z - this.W * this.X),
+            1 - 2 * (this.X * this.X + this.Y * this.Y)
+        );
+
+        public Vector3 Up() => new Vector3(
+            2 * (this.X * this.Y - this.W * this.Z),
+            1 - 2 * (this.X * this.X + this.Z * this.Z),
+            2 * (this.Y * this.Z + this.W * this.X)
+        );
+
+        public Vector3 Left() => new Vector3(
+            1 - 2 * (this.Y * this.Y + this.Z * this.Z),
+            2 * (this.X * this.Y + this.W * this.Z),
+            2 * (this.X * this.Z - this.W * this.Y)
+        );
+        */
+        #endregion
     }
 
     #region Subtypes
