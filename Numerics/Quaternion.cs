@@ -1,14 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Numerics;
-using System.Text;
 using Guardian.Mutatio;
 
 namespace Guardian.Numerics
 {
     public class Quaternion<TNum> : NTuple<TNum> where TNum : unmanaged
     {
+        public Quaternion(TNum x, TNum y, TNum z, TNum w) : base(4)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
+        }
+
+        public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack())
+        {
+            if (Size != 4)
+                throw new ArgumentException("Illegal Quaternion Size: " + Size);
+        }
+
         #region X Y Z W Accessors
+
         public const int IndexX = 0;
         public const int IndexY = 1;
         public const int IndexZ = 2;
@@ -42,23 +54,11 @@ namespace Guardian.Numerics
             get => StackW.Get();
             set => StackW.Set(value);
         }
+
         #endregion
 
-        public Quaternion(TNum x, TNum y, TNum z, TNum w) : base(4)
-        {
-            X = x;
-            Y = y;
-            Z = z;
-            W = w;
-        }
-
-        public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack())
-        {
-            if (Size != 4)
-                throw new ArgumentException("Illegal Quaternion Size: " + Size);
-        }
-
         #region Advanced Arithmetic Accessors
+
         /*
         public Vector3 Forward() => new Vector3(
             2 * (this.X * this.Z + this.W * this.Y),
@@ -78,10 +78,12 @@ namespace Guardian.Numerics
             2 * (this.X * this.Z - this.W * this.Y)
         );
         */
+
         #endregion
     }
 
     #region Subtypes
+
     public class QuaternionF : Quaternion<float>
     {
         public QuaternionF(float x, float y, float z, float w) : base(x, y, z, w)
@@ -95,5 +97,6 @@ namespace Guardian.Numerics
         {
         }
     }
+
     #endregion
 }

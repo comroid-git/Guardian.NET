@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Guardian
+﻿namespace Guardian
 {
     public interface IMutableState
     {

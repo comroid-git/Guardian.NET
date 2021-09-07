@@ -1,14 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Runtime.CompilerServices;
 using Guardian.Mutatio;
 
 namespace Guardian.Numerics
 {
     public class Vector<TNum> : NTuple<TNum> where TNum : unmanaged
     {
+        protected Vector(int n) : base(n)
+        {
+        }
+
+        public Vector(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack())
+        {
+        }
+
         #region X Y Z Accessors
+
         public const int IndexX = 0;
         public const int IndexY = 1;
         public const int IndexZ = 2;
@@ -34,26 +41,22 @@ namespace Guardian.Numerics
             get => StackZ.Get();
             set => StackZ.Set(value);
         }
+
         #endregion
-
-        protected Vector(int n) : base(n)
-        {
-        }
-
-        public Vector(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) { }
 
         #region Advanced Arithmetic Operations
 
         public TNum Magnitude()
         {
             var squares = new List<TNum>();
-            for (int i = 0; i < Size; i++)
+            for (var i = 0; i < Size; i++)
             {
                 var v = Get(i);
                 squares.Add(ArithmeticOperator.Multiplication.Apply(v, v));
             }
+
             var sqsum = squares[0];
-            for (int i = 1; i < Size; i++)
+            for (var i = 1; i < Size; i++)
                 sqsum = ArithmeticOperator.Addition.Apply(sqsum, squares[i]);
             return ArithmeticOperator.SquareRoot.Apply(sqsum, sqsum);
         }
@@ -62,10 +65,12 @@ namespace Guardian.Numerics
         {
             return (this / Magnitude()).Vector();
         }
+
         #endregion
     }
 
     #region Vector2 Types
+
     public class Vector2<TNum> : Vector<TNum> where TNum : unmanaged
     {
         public Vector2(TNum x, TNum y) : base(2)
@@ -113,9 +118,11 @@ namespace Guardian.Numerics
         {
         }
     }
+
     #endregion
 
     #region Vector3 Types
+
     public class Vector3<TNum> : Vector<TNum> where TNum : unmanaged
     {
         public Vector3(TNum x, TNum y, TNum z) : base(3)
@@ -164,20 +171,14 @@ namespace Guardian.Numerics
         {
         }
     }
+
     #endregion
 
     #region Vector4 Types
+
     public class Vector4<TNum> : Vector<TNum> where TNum : unmanaged
     {
         public const int IndexW = 3;
-
-        public RefStack<TNum> StackW => Stack(IndexW);
-
-        public TNum W
-        {
-            get => StackW.Get();
-            set => StackW.Set(value);
-        }
 
         public Vector4(TNum w, TNum x, TNum y, TNum z) : base(4)
         {
@@ -191,6 +192,14 @@ namespace Guardian.Numerics
 
         public Vector4(NTuple<TNum> tuple) : base(tuple)
         {
+        }
+
+        public RefStack<TNum> StackW => Stack(IndexW);
+
+        public TNum W
+        {
+            get => StackW.Get();
+            set => StackW.Set(value);
         }
     }
 
@@ -226,5 +235,6 @@ namespace Guardian.Numerics
         {
         }
     }
+
     #endregion
 }
