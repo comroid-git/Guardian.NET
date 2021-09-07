@@ -13,6 +13,9 @@ namespace CustomTest
             //Console.WriteLine("Second Result: " + resf);
             var res2 = new QuaternionF(0, 0, 0, 1) + new QuaternionF(0, 1, 0, 30);
             Console.WriteLine("Third Result: " + res2);
+            var x = res2.Vector4();
+            x.Y += 3;
+            Console.WriteLine("Fourth Result: " + x); // fixme todo
         }
     }
 }
