@@ -5,7 +5,6 @@ namespace Guardian.Mutatio
 {
     public class Reference<T> : IAccessor<T>
     {
-        public RefStack<T>[] Stack => _stack;
         private RefStack<T>[] _stack;
         private bool _mutable;
 
@@ -39,7 +38,7 @@ namespace Guardian.Mutatio
 
         public T Get(int index)
         {
-            return Stack[index].Get();
+            return Stack(index).Get();
         }
 
         public bool Set(T value)
@@ -49,7 +48,20 @@ namespace Guardian.Mutatio
 
         public bool Set(int index, T value)
         {
-            return Stack[index].Set(value);
+            return Stack(index).Set(value);
+        }
+
+        protected RefStack<T> Stack(int index, bool expandIfAbsent = false)
+        {
+            if (!expandIfAbsent && index >= _stack.Length)
+                throw new IndexOutOfRangeException($"Index out of Range: {index}; Maximum: {_stack.Length}");
+            else if (expandIfAbsent)
+            {
+                var swap = new RefStack<T>[index + 1];
+                Array.Copy(_stack, swap, _stack.Length);
+                _stack = swap;
+            }
+            return _stack[index];
         }
     }
 
