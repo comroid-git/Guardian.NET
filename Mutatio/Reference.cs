@@ -111,7 +111,7 @@ namespace Guardian.Mutatio
 
         bool IMutableState.Mutable
         {
-            get => _mutable;
+            get => _mutable && (Getter != null ? Setter != null : true);
             set => _mutable = value;
         }
     }
