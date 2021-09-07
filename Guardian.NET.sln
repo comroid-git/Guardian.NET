@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mutatio", "Mutatio\Mutatio.csproj", "{57127A23-4BA0-4F4D-BE78-7B913F0859E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mutatio", "Mutatio\Mutatio.csproj", "{57127A23-4BA0-4F4D-BE78-7B913F0859E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{065385EB-1FB7-44D0-8EDE-BCD0CA04448D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "API\API.csproj", "{065385EB-1FB7-44D0-8EDE-BCD0CA04448D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numerics", "Numerics\Numerics.csproj", "{903C1D47-236E-4A95-80CE-CFD56C2AD6B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{065385EB-1FB7-44D0-8EDE-BCD0CA04448D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{065385EB-1FB7-44D0-8EDE-BCD0CA04448D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{065385EB-1FB7-44D0-8EDE-BCD0CA04448D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{903C1D47-236E-4A95-80CE-CFD56C2AD6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{903C1D47-236E-4A95-80CE-CFD56C2AD6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{903C1D47-236E-4A95-80CE-CFD56C2AD6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{903C1D47-236E-4A95-80CE-CFD56C2AD6B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
