@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Guardian.Mutatio;
@@ -38,6 +40,7 @@ namespace Guardian.Numerics
             return new NTuple<TOut>(false, stacks.ToArray());
         }
 
+        #region Basic Arithmetic Operators
         public static NTuple<TNum> operator +(NTuple<TNum> left, NTuple<TNum> right)
         {
             return new ArithmeticOutputTuple<TNum>(Addition, left, right);
@@ -63,6 +66,24 @@ namespace Guardian.Numerics
             return new ArithmeticOutputTuple<TNum>(Negation, tuple, tuple);
         }
 
+        public static implicit operator TNum[](NTuple<TNum> tuple)
+        {
+            var arr = new TNum[tuple.Size];
+            for (int i = 0; i < arr.Length; i++)
+                arr[i] = tuple[i];
+            return arr;
+        }
+        #endregion
+
+        #region Conversion Methods
+        public Vector<TNum> Vector() => this is Vector<TNum> ? (Vector<TNum>) this : new Vector<TNum>(this);
+        public Vector2<TNum> Vector2() => this is Vector2<TNum> ? (Vector2<TNum>)this : new Vector2<TNum>(this);
+        public Vector3<TNum> Vector3() => this is Vector3<TNum> ? (Vector3<TNum>)this : new Vector3<TNum>(this);
+        public Vector4<TNum> Vector4() => this is Vector4<TNum> ? (Vector4<TNum>)this : new Vector4<TNum>(this);
+        public Quaternion<TNum> Quaternion() => this is Quaternion<TNum> ? (Quaternion<TNum>)this : new Quaternion<TNum>(this);
+        #endregion
+
+        #region Arithmetic Helper Class
         private class ArithmeticOutputTuple<TOut> : NTuple<TOut> where TOut : unmanaged
         {
             protected internal ArithmeticOutputTuple(ArithmeticOperator op, NTuple<TOut> left, NTuple<TOut> right) : base(false, CreateStacks(op, left, right))
@@ -86,5 +107,6 @@ namespace Guardian.Numerics
                 return stacks.ToArray();
             }
         }
+        #endregion
     }
 }

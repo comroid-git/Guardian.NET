@@ -35,6 +35,8 @@ namespace Guardian.Numerics
         protected Vector(int n) : base(n)
         {
         }
+
+        public Vector(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) {}
     }
 
     public class Vector2<TNum> : Vector<TNum> where TNum : unmanaged
@@ -43,6 +45,10 @@ namespace Guardian.Numerics
         {
             X = x;
             Y = y;
+        }
+
+        public Vector2(NTuple<TNum> tuple) : base(tuple)
+        {
         }
     }
 
@@ -53,6 +59,10 @@ namespace Guardian.Numerics
             X = x;
             Y = y;
             Z = z;
+        }
+
+        public Vector3(NTuple<TNum> tuple) : base(tuple)
+        {
         }
     }
 
@@ -74,6 +84,10 @@ namespace Guardian.Numerics
             X = x;
             Y = y;
             Z = z;
+        }
+
+        public Vector4(NTuple<TNum> tuple) : base(tuple)
+        {
         }
     }
 }

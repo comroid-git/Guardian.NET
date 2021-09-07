@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Numerics;
 using System.Text;
 using Guardian.Mutatio;
 
@@ -48,6 +49,8 @@ namespace Guardian.Numerics
             Z = z;
             W = w;
         }
+
+        public Quaternion(NTuple<TNum> tuple) : base((tuple as IAccessor<TNum>).Mutable, tuple.Stack()) {}
 
         public static Quaternion<TNum> operator +(Quaternion<TNum> left, Quaternion<TNum> right)
         {

@@ -56,7 +56,9 @@ namespace Guardian.Mutatio
             return Stack(index, expandIfAbsent).Set(value);
         }
 
-        protected RefStack<T> Stack(int index, bool expandIfAbsent = false)
+        public RefStack<T>[] Stack() => _stack;
+
+        public RefStack<T> Stack(int index, bool expandIfAbsent = false)
         {
             if (!expandIfAbsent && index >= _stack.Length)
                 return RefStack<T>.Empty<T>();
