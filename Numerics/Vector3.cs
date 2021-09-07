@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 using Guardian.Mutatio;
 
 namespace Guardian.Numerics
@@ -9,22 +10,26 @@ namespace Guardian.Numerics
         public const int IndexY = 1;
         public const int IndexZ = 2;
 
+        public RefStack<TNum> StackX => Stack(IndexX);
+        public RefStack<TNum> StackY => Stack(IndexY);
+        public RefStack<TNum> StackZ => Stack(IndexZ);
+
         public TNum X
         {
-            get => Get(IndexX);
-            set => Set(IndexX, value);
+            get => StackX.Get();
+            set => StackX.Set(value);
         }
 
         public TNum Y
         {
-            get => Get(IndexY);
-            set => Set(IndexY, value);
+            get => StackY.Get();
+            set => StackY.Set(value);
         }
 
         public TNum Z
         {
-            get => Get(IndexZ);
-            set => Set(IndexZ, value);
+            get => StackZ.Get();
+            set => StackZ.Set(value);
         }
 
         public Vector3(TNum x, TNum y, TNum z) : base(3)
