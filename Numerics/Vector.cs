@@ -4,7 +4,7 @@ using Guardian.Mutatio;
 
 namespace Guardian.Numerics
 {
-    public abstract class Vector<TNum> : NTuple<TNum> where TNum : unmanaged
+    public class Vector<TNum> : NTuple<TNum> where TNum : unmanaged
     {
         public const int IndexX = 0;
         public const int IndexY = 1;
