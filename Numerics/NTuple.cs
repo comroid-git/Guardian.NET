@@ -8,17 +8,6 @@ using static Guardian.ArithmeticOperator;
 
 namespace Guardian.Numerics
 {
-    public class Test
-    {
-        public static void Main(string[] args)
-        {
-            var result = new Vector3<float>(0, 0, 0) + new Vector2<float>(1, 2);
-            Console.WriteLine("First Result: " + result);
-            var res2 = new QuaternionF(0, 0, 0, 0) + new QuaternionF(0, 0, 0, 0);
-            Console.WriteLine("Second Result: " + result);
-        }
-    }
-
     public class NTuple<TNum> : Reference<TNum> where TNum : unmanaged
     {
         public NTuple(int n) : base(true, n)
