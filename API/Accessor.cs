@@ -2,7 +2,7 @@
 {
     public interface IMutableState
     {
-        bool Mutable { get; protected set; }
+        public bool Mutable { get; protected set; }
     }
 
     public interface IAccessor<T> : IMutableState

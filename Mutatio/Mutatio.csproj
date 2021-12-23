@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Guardian.Mutatio</RootNamespace>
-    <Nullable>annotations</Nullable>
+    <Nullable>enable</Nullable>
     <Company>comroid</Company>
     <Authors>Kaleidox</Authors>
     <Product>Guardian.NET</Product>
@@ -16,6 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\API\API.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HarmonyX" Version="2.7.0" />
   </ItemGroup>
 
 </Project>
